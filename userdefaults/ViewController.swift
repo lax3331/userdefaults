@@ -8,12 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var dataLabel: UILabel!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setup()
     }
 
-
+    private func setup() {
+        if Model.themeValue == true {
+            view.backgroundColor = .darkGray
+        } else {
+            view.backgroundColor = .white
+        }
+        dataLabel.font = UIFont.systemFont(ofSize: Model.stepperValue)
+    }
 }
 
